@@ -256,3 +256,17 @@ class CommentForm(forms.ModelForm):
         for name, field in self.fields.items():
             field.widget.attrs.update({'class': 'form-control border-1'})
 
+class CalendarForm(forms.ModelForm):
+    class Meta:
+        model = Calendar
+        fields = '__all__'
+        widgets = {
+            'is_default': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(CalendarForm, self).__init__(*args, **kwargs)
+
+        for name, field in self.fields.items():
+            if name != 'is_default':
+                field.widget.attrs.update({'class': 'form-control border-1'})

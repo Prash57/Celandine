@@ -241,7 +241,6 @@ def deleteHomeContent(request,pk):
 
 # view about
 @login_required(login_url = 'login')
-
 def viewAbout(request):
     abouts = About.objects.all()
     context = {'abouts': abouts}
@@ -890,3 +889,52 @@ def deleteTeamMember(request, pk):
     return render (request, 'delete.html', context)
 
 
+# view calendar
+@login_required(login_url = 'login')
+def viewCalendar(request):
+    calendars = Calendar.objects.all()
+    context = {'calendars': calendars}
+    return render(request, 'base/viewcalendar.html', context)
+
+# add calendar
+@login_required(login_url = 'login')
+def addCalendar(request):
+    calendar = Calendar.objects.all()
+    form = CalendarForm()
+    if request.method =='POST':
+        form = CalendarForm(request.POST, request.FILES)
+        if form.is_valid():
+            calendar = form.save(commit=False)
+            calendar.save()
+
+            messages.success(request, 'Calendar added successfully')
+            return redirect('viewCalendar')
+    context = {'calendar': calendar, 'form': form}
+    return render (request, 'base/calendarform.html', context) 
+
+# edit calendar
+@login_required(login_url = 'login')
+def editCalendar(request, pk):
+    calendar = Calendar.objects.get(id=pk)
+    form = CalendarForm(instance=calendar)
+    if request.method =='POST':
+        form = CalendarForm(request.POST, request.FILES, instance=calendar)
+        if form.is_valid():
+            form.save()
+
+            messages.success(request, 'Calendar updated successfully')
+            return redirect('viewCalendar')
+    context = {'form': form}
+    return render (request, 'base/calendarform.html', context)
+
+# delete calendar
+@login_required(login_url = 'login')
+def deleteCalendar(request, pk):
+    calendar = Calendar.objects.get(id=pk)
+    if request.method =='POST':
+            calendar.delete()
+
+            messages.success(request, 'Calendar deleted successfully')
+            return redirect('viewCalendar')
+    context = {'form': calendar}
+    return render (request, 'delete.html', context)

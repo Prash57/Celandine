@@ -115,6 +115,12 @@ urlpatterns = [
     path('edit-team-member/<str:pk>', views.editTeamMember, name='editteammember'),
     path('delete-team-member/<str:pk>', views.deleteTeamMember, name='deleteteammember'),
 
+    # calendar page routes 
+    path('view-calendar/', views.viewCalendar, name='viewCalendar'),
+    path('add-calendar/', views.addCalendar, name='addcalendar'),
+    path('edit-calendar/<str:pk>', views.editCalendar, name='editcalendar'),
+    path('delete-calendar/<str:pk>', views.deleteCalendar, name='deletecalendar'),
+
     # dashboard
     path('dashboard/', views.dashboard, name='dashboard'),
 

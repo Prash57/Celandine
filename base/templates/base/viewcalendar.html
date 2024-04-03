@@ -1,0 +1,40 @@
+{% extends 'dash.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container-xxl bg-white p-0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-center">
+                <h2>Calendar List</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col text-center">
+                <a href="{% url 'addcalendar' %}">Add</a>
+            </div>
+        </div>
+
+        <div class="row">
+            {% for calendar in calendars %}
+            <div class="col">
+                <div class="gallery">
+                    <div class="gallery-images">
+                        <div class="gallery-item">
+                            <img src="{{ calendar.calendar.url }}" alt="" width="300">
+                        </div>
+                        <div>
+                            <a href="{% url 'editcalendar' calendar.id %}">Edit</a> |
+                            <a href="{% url 'deletecalendar' calendar.id %}">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}
