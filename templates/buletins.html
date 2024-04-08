@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-xxl bg-white p-0">
+    <div class="row">
+        <div class="col text-center">
+            <h2>Buletins</h2>
+            <p class="lead"></p>
+        </div>
+    </div>
+
+</div>
+<div class="container-xxl bg-light p-0">
+
+    <div class="row">
+        {% for bulletin in buletin %}
+        <div class="col-md-3 col-sm-8 mb-2 p-5">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text"><a href="{{ bulletin.file.url }}">
+                            {{ bulletin.name }}</a></p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+
+{% endblock %}

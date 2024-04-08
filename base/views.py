@@ -14,6 +14,12 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 def custom_404_view(request, exception):
     return render(request, '404.html', status=404)
 
+# buletins
+def buletins(request):
+    buletin = Buletins.objects.all()
+    context = {'buletin': buletin}
+    return render(request, 'buletins.html', context)
+
 # user login
 def loginUser(request):
     page = 'login'

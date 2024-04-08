@@ -26,6 +26,8 @@
                     class="nav-item nav-link {% if url_name == 'blogs' %}active{% endif %}">Blogs</a>
                 <a href="{% url 'gallery' %}"
                     class="nav-item nav-link {% if url_name == 'gallery' %}active{% endif %}">Gallery</a>
+                <a href="{% url 'buletins' %}"
+                    class="nav-item nav-link {% if url_name == 'buletins' %}active{% endif %}">Buletins</a>
                 <a href="{% url 'contact' %}"
                     class="nav-item nav-link {% if url_name == 'contact' %}active{% endif %}">Contact Us</a>
                 {% if request.user.is_authenticated %}

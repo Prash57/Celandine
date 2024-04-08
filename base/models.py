@@ -13,6 +13,16 @@ class Calendar(models.Model):
     class Meta:
         verbose_name_plural = "00. Calender"
 
+class Buletins(models.Model):
+    name = models.CharField(max_length=255, blank=True, null=True)
+    file = models.FileField(upload_to="uploads/buletins")
+   
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name_plural = "Buletins"
+
 
 class SchoolSetup(models.Model):
     data_set = models.CharField(max_length=255)

@@ -13,6 +13,7 @@ admin.site.register(Gallery)
 admin.site.register(Contact)
 admin.site.register(HomeContent)
 admin.site.register(Comment)
+admin.site.register(Buletins)
 
 
 class AboutAdmin(SummernoteModelAdmin):
