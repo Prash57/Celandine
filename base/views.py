@@ -49,6 +49,7 @@ def logoutUser(request):
     return redirect('login')
 
 # user registration
+@login_required(login_url = 'login')
 def registerUser(request):
     page = 'register'
     form = CustomUserCreationForm()
