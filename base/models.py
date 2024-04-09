@@ -211,6 +211,8 @@ class PopupMessage(models.Model):
     body = models.TextField(default=None)
     image = models.ImageField(upload_to="uploads/popup_images", blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField(default=True)
+    
     def __str__(self):
         return self.title
     

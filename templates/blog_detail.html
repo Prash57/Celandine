@@ -19,10 +19,10 @@
             <div>
                 <a href="{% url 'blogs' %}" class="btn btn-primary">Back</a>
 
-                <p><b>Author: </b><span> {{blog.author |capfirst }}</span>
+                <!-- <p><b>Author: </b><span> {{blog.author |capfirst }}</span>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Date:</b>
                     <span>{{blog.created_at}}</span>
-                </p>
+                </p> -->
             </div>
         </div>
         <div class="row">
@@ -38,6 +38,7 @@
                     <p><b>Author: </b><span> {{blog.author |capfirst }}</span>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Date:</b>
                         <span>{{blog.created_at}}</span>
+                        <hr class="w-50">
                     </p>
                 </div>
                 <div class="col">

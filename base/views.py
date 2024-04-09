@@ -594,6 +594,17 @@ def viewNotices(request):
 # notice page
 def notice(request):
     notices = Notice.objects.all()
+    page = request.GET.get('page')
+
+    paginator = Paginator(notices, 10)
+
+    try:
+        notices = paginator.page(page)
+    except PageNotAnInteger:
+        notices = paginator.page(1)
+    except EmptyPage:
+        notices = paginator.page(paginator.num_pages)
+
     context = {'notices': notices}
     return render(request, 'notice.html', context)
 
