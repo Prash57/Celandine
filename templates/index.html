@@ -4,16 +4,30 @@
 <style>
     @media (max-width: 767px) {
 
-        /* Adjustments for smaller screens */
         .navbar-toggler {
             position: relative;
             top: 0;
-            /* Ensure it's at the top */
             left: 0;
-            /* Ensure it's at the left */
             margin-top: 10px;
-            /* Adjust as needed */
         }
+
+        .carousel {
+            max-width: 100%;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .slides img {
+            width: auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* .slides img {
+            width: auto;
+            max-width: 75%;
+            height: auto;
+        } */
     }
 
     .image-container {
@@ -195,231 +209,231 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col mt-2">
+                    <div class="col mt-2" style="max-height: 400px; overflow-y: auto;">
                         <h3 class="text-center">Notice</h3>
-                        {% for notice in notices|slice:":1" %}
-                <div class="card mb-5">
-                    <div class="row g-0"  style="background: rgb(240, 240, 240);">
-                        <div class="col"">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ notice.title |capfirst }}</h5>
-                                <p class="card-text"><small class="text-body-secondary"><b>Date:</b>
-                                        {{notice.created_at}}</small>
-                                </p>
-                                <p class="card-text">{{ notice.body |capfirst |safe}}</p>
+                        {% for notice in notices|slice:":2" %}
+                        <div class="card mb-5">
+                            <div class="row g-0" style="background: rgb(240, 240, 240);">
+                                <div class="col"">
+                            <div class=" card-body">
+                                    <h5 class="card-title">{{ notice.title |capfirst }}</h5>
+                                    <p class="card-text"><small class="text-body-secondary"><b>Date:</b>
+                                            {{notice.created_at}}</small>
+                                    </p>
+                                    <p class="card-text">{{ notice.body |capfirst |safe}}</p>
+                                </div>
                             </div>
+                            <hr>
                         </div>
-                        <hr>
-                    </div>
-                    <div class="row">
-                        <div class="col"">
+                        <div class="row">
+                            <div class="col"">
                             {% if notice.image %}
                             {% if notice.image.url %}
                             <a href=" #" class="image-link" data-src="{{ notice.image.url }}">
-                            <img src="{{ notice.image.url }}" class="card-img-bottom" alt="...">
-                            </a>
-                            {% endif %}
-                            {% endif %}
+                                <img src="{{ notice.image.url }}" class="card-img-bottom" alt="...">
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
-                </div>
-                {% endfor %}
-                    </div>
-                </div>
-            </div>
-            <!--  -->
-
-
-            <!--  -->
-        </div>
-    </div>
-    <!-- Carousel End -->
-
-
-    <!-- Facilities Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h1 class="mb-3">School Facilities</h1>
-                <p></p>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="facility-item">
-                        <div class="facility-icon bg-primary">
-                            <span class="bg-primary"></span>
-                            <i class="fa fa-bus-alt fa-3x text-primary"></i>
-                            <span class="bg-primary"></span>
-                        </div>
-                        <div class="facility-text bg-primary">
-                            <h3 class="text-primary mb-3">School Van</h3>
-                            <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam, ipsa.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="facility-item">
-                        <div class="facility-icon bg-success">
-                            <span class="bg-success"></span>
-                            <i class="fa fa-futbol fa-3x text-success"></i>
-                            <span class="bg-success"></span>
-                        </div>
-                        <div class="facility-text bg-success">
-                            <h3 class="text-success mb-3">Playground</h3>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, ullam?</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="facility-item">
-                        <div class="facility-icon bg-warning">
-                            <span class="bg-warning"></span>
-                            <i class="fa fa-home fa-3x text-warning"></i>
-                            <span class="bg-warning"></span>
-                        </div>
-                        <div class="facility-text bg-warning">
-                            <h3 class="text-warning mb-3">Healthy Canteen</h3>
-                            <p class="mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa, suscipit.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="facility-item">
-                        <div class="facility-icon bg-info">
-                            <span class="bg-info"></span>
-                            <i class="fa fa-chalkboard-teacher fa-3x text-info"></i>
-                            <span class="bg-info"></span>
-                        </div>
-                        <div class="facility-text bg-info">
-                            <h3 class="text-info mb-3">Positive Learning</h3>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, molestiae.
-                            </p>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
+        <!--  -->
+
+
+        <!--  -->
     </div>
-    <!-- Facilities End -->
+</div>
+<!-- Carousel End -->
 
 
-
-    <!-- Classes Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h1 class="mb-3">School Classes</h1>
-                <p></p>
+<!-- Facilities Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1 class="mb-3">School Facilities</h1>
+            <p></p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="facility-item">
+                    <div class="facility-icon bg-primary">
+                        <span class="bg-primary"></span>
+                        <i class="fa fa-bus-alt fa-3x text-primary"></i>
+                        <span class="bg-primary"></span>
+                    </div>
+                    <div class="facility-text bg-primary">
+                        <h3 class="text-primary mb-3">School Van</h3>
+                        <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam, ipsa.</p>
+                    </div>
+                </div>
             </div>
-            <div class="row g-4">
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="facility-item">
+                    <div class="facility-icon bg-success">
+                        <span class="bg-success"></span>
+                        <i class="fa fa-futbol fa-3x text-success"></i>
+                        <span class="bg-success"></span>
+                    </div>
+                    <div class="facility-text bg-success">
+                        <h3 class="text-success mb-3">Playground</h3>
+                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, ullam?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="facility-item">
+                    <div class="facility-icon bg-warning">
+                        <span class="bg-warning"></span>
+                        <i class="fa fa-home fa-3x text-warning"></i>
+                        <span class="bg-warning"></span>
+                    </div>
+                    <div class="facility-text bg-warning">
+                        <h3 class="text-warning mb-3">Healthy Canteen</h3>
+                        <p class="mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa, suscipit.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="facility-item">
+                    <div class="facility-icon bg-info">
+                        <span class="bg-info"></span>
+                        <i class="fa fa-chalkboard-teacher fa-3x text-info"></i>
+                        <span class="bg-info"></span>
+                    </div>
+                    <div class="facility-text bg-info">
+                        <h3 class="text-info mb-3">Positive Learning</h3>
+                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, molestiae.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Facilities End -->
 
-                {% for courses in cdata %}
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="classes-item">
-                        <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                            <img class="img-fluid rounded-circle" src="{{courses.image.url}}" alt="">
+
+
+<!-- Classes Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1 class="mb-3">School Classes</h1>
+            <p></p>
+        </div>
+        <div class="row g-4">
+
+            {% for courses in cdata %}
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="classes-item">
+                    <div class="bg-light rounded-circle w-75 mx-auto p-3">
+                        <img class="img-fluid rounded-circle" src="{{courses.image.url}}" alt="">
+                    </div>
+                    <div class="bg-light rounded p-4 pt-5 mt-n5">
+                        <a class="d-block text-center h3 mt-3 mb-4" href="">{{courses.name}}</a>
+                        <div class="row g-1">
+                            <div class="col-2">
+                                <div class="border-top border-3 border-primary pt-2">
+                                </div>
+                            </div>
+                            <div class="col-6 text-center">
+                                <div class="border-top border-3 border-warning pt-2">
+                                    <h6 class="text-warning mb-1">Faculty:</h6>
+                                    <small>{{courses.faculty}}</small>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="border-top border-3 border-success pt-2">
+                                    <!-- <h6 class="text-success mb-1">Time:</h6> -->
+                                    <!-- <small>9-10 AM</small> -->
+                                </div>
+                            </div>
+
                         </div>
-                        <div class="bg-light rounded p-4 pt-5 mt-n5">
-                            <a class="d-block text-center h3 mt-3 mb-4" href="">{{courses.name}}</a>
-                            <div class="row g-1">
-                                <div class="col-2">
-                                    <div class="border-top border-3 border-primary pt-2">
-                                    </div>
-                                </div>
-                                <div class="col-6 text-center">
-                                    <div class="border-top border-3 border-warning pt-2">
-                                        <h6 class="text-warning mb-1">Faculty:</h6>
-                                        <small>{{courses.faculty}}</small>
-                                    </div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="border-top border-3 border-success pt-2">
-                                        <!-- <h6 class="text-success mb-1">Time:</h6> -->
-                                        <!-- <small>9-10 AM</small> -->
-                                    </div>
-                                </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Classes End -->
 
+
+
+
+
+<!-- Testimonial Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1 class="mb-3">What Our Well Wishers Says!</h1>
+            <p></p>
+        </div>
+
+        <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+            {% for tmsg in tedata %}
+            <div class="testimonial-item bg-light rounded p-5">
+                <p class="fs-5">{{tmsg.testimonial}}</p>
+                <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
+                    <img class="img-fluid flex-shrink-0 rounded-circle" src="{{tmsg.image.url}}"
+                        style="width: 90px; height: 90px;">
+                    <div class="ps-3">
+                        <h3 class="mb-1">{{tmsg.name}}</h3>
+                        <span>{{tmsg.position}}</span>
+                    </div>
+                    <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-6">
+        <div class="content-wrap">
+            <div class="section-title-wrapper">
+                <h4 class="section-title text-center mb-5">FAQs</h4>
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 mb-5">
+                        <div class="accordion-wrapper style-02">
+                            <!-- accordion wrapper -->
+                            <div id="accordionOne">
+                                {% for faq in fdata %}
+                                <div class="card mb-2">
+                                    <div class="card-header" id="headingOne">
+                                        <h5 class="mb-0">
+                                            <a class="collapsed" role="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseOne{{faq.id}}" aria-expanded="false"
+                                                aria-controls="collapseOne{{faq.id}}">
+                                                {{faq.question}}
+                                            </a>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseOne{{faq.id}}" class="collapse" data-bs-parent="#accordionOne">
+                                        <div class="card-body">
+                                            {{faq.answer|safe}}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
                 </div>
-                {% endfor %}
             </div>
         </div>
     </div>
-    <!-- Classes End -->
-
-
-
-
-
-    <!-- Testimonial Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h1 class="mb-3">What Our Well Wishers Says!</h1>
-                <p></p>
-            </div>
-
-            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                {% for tmsg in tedata %}
-                <div class="testimonial-item bg-light rounded p-5">
-                    <p class="fs-5">{{tmsg.testimonial}}</p>
-                    <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
-                        <img class="img-fluid flex-shrink-0 rounded-circle" src="{{tmsg.image.url}}"
-                            style="width: 90px; height: 90px;">
-                        <div class="ps-3">
-                            <h3 class="mb-1">{{tmsg.name}}</h3>
-                            <span>{{tmsg.position}}</span>
-                        </div>
-                        <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
-                    </div>
-                </div>
-                {% endfor %}
-
-            </div>
-        </div>
-    </div>
-    <!-- Testimonial End -->
-
-    <div class="row justify-content-center">
-
-        <div class="col-lg-6">
-            <div class="content-wrap">
-                <div class="section-title-wrapper">
-                    <h4 class="section-title text-center mb-5">FAQs</h4>
-                    <div class="row justify-content-center">
-                        <div class="col-lg-12 mb-5">
-                            <div class="accordion-wrapper style-02">
-                                <!-- accordion wrapper -->
-                                <div id="accordionOne">
-                                    {% for faq in fdata %}
-                                    <div class="card mb-2">
-                                        <div class="card-header" id="headingOne">
-                                            <h5 class="mb-0">
-                                                <a class="collapsed" role="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#collapseOne{{faq.id}}" aria-expanded="false"
-                                                    aria-controls="collapseOne{{faq.id}}">
-                                                    {{faq.question}}
-                                                </a>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseOne{{faq.id}}" class="collapse" data-bs-parent="#accordionOne">
-                                            <div class="card-body">
-                                                {{faq.answer|safe}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
 </div>
 
 <script>
