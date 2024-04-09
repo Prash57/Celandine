@@ -122,7 +122,7 @@ urlpatterns = [
     path('delete-calendar/<str:pk>', views.deleteCalendar, name='deletecalendar'),
 
     # dashboard
-    path('dashboard/', views.dashboard, name='dashboard'),
+    path('admin/', views.dashboard, name='admind'),
 
     # buletins
     path('buletins/', views.buletins, name='buletins'),

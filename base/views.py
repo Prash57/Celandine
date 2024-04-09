@@ -25,7 +25,7 @@ def loginUser(request):
     page = 'login'
 
     if request.user.is_authenticated:
-        return redirect('/admin')
+        return redirect('/admin/')
     
     if request.method == 'POST':
         username = request.POST['username'].lower()
@@ -40,7 +40,7 @@ def loginUser(request):
 
         if user is not None:
             login(request, user)
-            return redirect(request.GET['next'] if 'next' in request.GET else '/admin')
+            return redirect(request.GET['next'] if 'next' in request.GET else '/admin/')
         else:
             messages.error(request, 'Invalid Username or Password')
 
@@ -82,7 +82,8 @@ def registerUser(request):
 @login_required(login_url = 'login')
 def dashboard(request):
     context = {}
-    return render(request, 'dash.html', context)
+    # return render(request, 'dash.html', context)
+    return redirect('admind')
 
 # homepage
 def home(request):
