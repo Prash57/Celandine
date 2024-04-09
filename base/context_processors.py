@@ -9,6 +9,11 @@ def calendar_data(request):
     calendars = Calendar.objects.all().order_by('-is_default')
     return {'calendardata': calendars}
 
+def notice(request):
+    notices = Notice.objects.all().order_by('-created_at')
+    return {'notices': notices}
+
+
 def custom_data(request):
     if SchoolSetup.objects.all().exists():
         setup = SchoolSetup.objects.all().order_by('-created_at')
@@ -50,3 +55,4 @@ def testimonial(request):
 def popup(request):
     modal = PopupMessage.objects.all()
     return {'pdata': modal}
+

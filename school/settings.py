@@ -78,6 +78,7 @@ TEMPLATES = [
                 'base.context_processors.social_data',
                 'base.context_processors.calendar_data',
                 'base.context_processors.blog_data',
+                'base.context_processors.notice',
             ],
         },
     },

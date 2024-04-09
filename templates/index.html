@@ -2,15 +2,20 @@
 {% load static %}
 {% block content %}
 <style>
-@media (max-width: 767px) {
+    @media (max-width: 767px) {
+
         /* Adjustments for smaller screens */
         .navbar-toggler {
             position: relative;
-            top: 0; /* Ensure it's at the top */
-            left: 0; /* Ensure it's at the left */
-            margin-top: 10px; /* Adjust as needed */
+            top: 0;
+            /* Ensure it's at the top */
+            left: 0;
+            /* Ensure it's at the left */
+            margin-top: 10px;
+            /* Adjust as needed */
         }
     }
+
     .image-container {
         display: flex;
         align-items: center;
@@ -36,7 +41,7 @@
 
     .carousel {
         position: relative;
-        width: 400px;
+        width: 500px;
         margin: 0 auto;
         overflow: hidden;
     }
@@ -111,7 +116,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>{{modal.body}}</p>
+                    <p>{{modal.body | safe}}</p>
                     {% if modal.image %}
                     {% if modal.image.url %}
                     <img src="{{ modal.image.url }}" alt="">
@@ -132,19 +137,19 @@
     <!-- Carousel Start -->
     <div class="container-fluid">
         <div class="row owl-carousel">
-            <div class="col-sm-12 col-md-8">
+            <div class="col-sm-12 col-md-7">
                 <div class="text-center">
                     <h2>Our Students Creativity</h2>
                 </div>
                 {% if blogdata %}
-                {% for blog in blogdata|slice:":2" %}
+                {% for blog in blogdata|slice:":3" %}
                 <div class="card mb-3" style="max-width: 800px;">
                     <div class="row g-0">
-                        <div class="col-md-7 image-container">
+                        <div class="col-md-5 image-container">
                             <img src="{{ blog.image.url }}" class="img-fluid rounded-start" alt="{{ blog.title }}"
                                 width="100%" height="">
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-7">
                             <div class="card-body">
                                 <a href="{% url 'blog' blog.slug %}">
                                     <h5 class="card-title">{{ blog.title|capfirst }}</h5>
@@ -165,31 +170,65 @@
             </div>
 
             <!-- calendar -->
-            <div class="col-sm-12 col-md-4">
-                <div class="calender text-center">
-                    <h2>Calendar</h2>
+            <div class="col-sm-12 col-md-5">
+                <div class="row">
+                    <div class="calender text-center">
+                        <h2>Calendar</h2>
 
-                    <div class="carousel">
-                        <div class="slides">
+                        <div class="carousel">
+                            <div class="slides">
 
-                            {% if calendardata %}
-                            {% for calendar in calendardata %}
-                            {% if calendar.is_default %}
-                            <img src="{{ calendar.calendar.url }}" alt="Slide" data-is-default="true">
-                            {% else %}
-                            <img src="{{ calendar.calendar.url }}" alt="Slide" data-is-default="false">
-                            {% endif %}
-                            {% endfor %}
-                            {% endif %}
+                                {% if calendardata %}
+                                {% for calendar in calendardata %}
+                                {% if calendar.is_default %}
+                                <img src="{{ calendar.calendar.url }}" alt="Slide" data-is-default="true">
+                                {% else %}
+                                <img src="{{ calendar.calendar.url }}" alt="Slide" data-is-default="false">
+                                {% endif %}
+                                {% endfor %}
+                                {% endif %}
 
+                            </div>
+                            <button class="prev" onclick="prevSlide()">&#10094;</button>
+                            <button class="next" onclick="nextSlide()">&#10095;</button>
                         </div>
-                        <button class="prev" onclick="prevSlide()">&#10094;</button>
-                        <button class="next" onclick="nextSlide()">&#10095;</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-2">
+                        <h3 class="text-center">Notice</h3>
+                        {% for notice in notices|slice:":1" %}
+                <div class="card mb-5">
+                    <div class="row g-0"  style="background: rgb(240, 240, 240);">
+                        <div class="col"">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ notice.title |capfirst }}</h5>
+                                <p class="card-text"><small class="text-body-secondary"><b>Date:</b>
+                                        {{notice.created_at}}</small>
+                                </p>
+                                <p class="card-text">{{ notice.body |capfirst |safe}}</p>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="row">
+                        <div class="col"">
+                            {% if notice.image %}
+                            {% if notice.image.url %}
+                            <a href=" #" class="image-link" data-src="{{ notice.image.url }}">
+                            <img src="{{ notice.image.url }}" class="card-img-bottom" alt="...">
+                            </a>
+                            {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
                     </div>
                 </div>
             </div>
             <!--  -->
-         
+
 
             <!--  -->
         </div>
@@ -265,7 +304,7 @@
     <!-- Facilities End -->
 
 
-   
+
     <!-- Classes Start -->
     <div class="container-xxl py-5">
         <div class="container">
@@ -312,7 +351,7 @@
     <!-- Classes End -->
 
 
-   
+
 
 
     <!-- Testimonial Start -->
@@ -338,7 +377,7 @@
                     </div>
                 </div>
                 {% endfor %}
-                
+
             </div>
         </div>
     </div>
