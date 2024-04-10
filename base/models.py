@@ -11,17 +11,18 @@ class Calendar(models.Model):
     def __str__(self):
         return str(self.uploaded)
     class Meta:
-        verbose_name_plural = "00. Calender"
+        verbose_name_plural = "03. Calender"
 
 class Buletins(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True)
     file = models.FileField(upload_to="uploads/buletins")
-   
+    created_at = models.DateTimeField(auto_now_add=True)
+
     def __str__(self):
         return self.name
     
     class Meta:
-        verbose_name_plural = "Buletins"
+        verbose_name_plural = "11. Buletins"
 
 
 class SchoolSetup(models.Model):
@@ -38,7 +39,7 @@ class SchoolSetup(models.Model):
     def __str__(self):
         return self.data_set
     class Meta:
-        verbose_name_plural = "01. School Setup"
+        verbose_name_plural = "00. School Setup"
 
 class Socials(models.Model):
     data_set = models.CharField(max_length=255)
@@ -65,7 +66,7 @@ class About(models.Model):
         return self.about_title
     
     class Meta:
-        verbose_name_plural = "03. About"
+        verbose_name_plural = "04. About"
 
 
 class MessageFrom(models.Model):
@@ -79,7 +80,7 @@ class MessageFrom(models.Model):
         return self.name
     
     class Meta:
-        verbose_name_plural = "04. Message From"
+        verbose_name_plural = "05. Message From"
 
 class TeamMember(models.Model):
     name = models.CharField(max_length=200)
@@ -94,7 +95,7 @@ class TeamMember(models.Model):
         return self.name
     
     class Meta:
-        verbose_name_plural = "05. Team Members"
+        verbose_name_plural = "06. Team Members"
 
 class Testimonial(models.Model):
     name= models.CharField(max_length=200)
@@ -107,7 +108,7 @@ class Testimonial(models.Model):
         return self.name
     
     class Meta:
-        verbose_name_plural = "06. Testimonials"
+        verbose_name_plural = "12. Testimonials"
 
 class Courses(models.Model):
     name= models.CharField(max_length=200)
@@ -130,7 +131,7 @@ class Faqs(models.Model):
         return self.question
     
     class Meta:
-        verbose_name_plural = "8. FAQs"
+        verbose_name_plural = "09. FAQs"
 
 class Blog(models.Model):
     title = models.CharField(max_length=255)
@@ -161,7 +162,7 @@ class Blog(models.Model):
             super().save(*args, **kwargs)
     
     class Meta:
-        verbose_name_plural = ("9. Blogs")
+        verbose_name_plural = ("08. Blogs")
         ordering = ['-created_at']
 
 
@@ -188,7 +189,7 @@ class Contact(models.Model):
         return self.name
     
     class Meta:
-        verbose_name_plural = "11. Contact"
+        verbose_name_plural = "17. Queries"
         ordering = ['-created']
 
 class HomeContent(models.Model):
@@ -204,7 +205,7 @@ class HomeContent(models.Model):
         return self.data_set
     
     class Meta:
-        verbose_name_plural = "12. Home Content"
+        verbose_name_plural = "01. Home Content"
 
 class PopupMessage(models.Model):
     title = models.CharField(max_length=255)

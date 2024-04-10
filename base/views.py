@@ -16,7 +16,7 @@ def custom_404_view(request, exception):
 
 # buletins
 def buletins(request):
-    buletin = Buletins.objects.all()
+    buletin = Buletins.objects.all().order_by('-created_at')
     context = {'buletin': buletin}
     return render(request, 'buletins.html', context)
 
@@ -449,7 +449,7 @@ def viewGallery(request):
 
 # gallery page
 def gallery(request):
-    photos = Gallery.objects.all()
+    photos = Gallery.objects.all().order_by('-created')
     context ={'photos': photos}
     return render (request, 'gallery.html', context)
 
