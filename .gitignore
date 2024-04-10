@@ -3,6 +3,6 @@ include
 lib 
 db.sqlite3
 pyvenv.cfg
-migrations
+
 __pycache__
 school/__pycache__
