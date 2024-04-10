@@ -6,3 +6,4 @@ pyvenv.cfg
 migrations
 __pycache__
 school/__pycache__
+media/*
