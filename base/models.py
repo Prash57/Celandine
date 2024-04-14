@@ -114,7 +114,7 @@ class Courses(models.Model):
     name= models.CharField(max_length=200)
     faculty= models.CharField(max_length=200)
     image = models.ImageField(upload_to="uploads/course_images/")
-    created_at = models.DateField(auto_now_add=True)
+    created_at = models.DateField(auto_now_add=True) #datetimefield
 
     def __str__(self):
         return self.name

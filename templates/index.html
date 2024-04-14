@@ -135,7 +135,7 @@
                     <p>{{modal.body | safe}}</p>
                     {% if modal.image %}
                     {% if modal.image.url %}
-                    <img src="{{ modal.image.url }}" alt="">
+                    <img src="{{ modal.image.url }}" alt="" class="w-100">
                     {% endif %}
                     {% endif %}
                 </div>
@@ -465,4 +465,8 @@
     }
 
 </script>
+
+
+
+
 {% endblock %}
