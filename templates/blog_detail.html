@@ -1,12 +1,23 @@
 {% extends 'main.html' %}
 {% load static %}
 {% block content %}
-<style>
-    .content-container img {
-        max-width: 100%;
-        height: auto;
-    }
-</style>
+
+<head>
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{{ blog.title }}" />
+    <meta property="og:description" content="{{ blog.sub_title }}" />
+    <meta property="og:image" content="{{ blog.image.url }}" />
+    <meta property="og:url" content="{{ request.build_absolute_url }}" />
+    <meta property="og:type" content="blog" />
+    <meta name="twitter:card" content="summary_large_image">
+
+    <style>
+        .content-container img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
 <div class="container-xxl bg-white p-0">
     <div class="container">
         <div class="row mt-5">
