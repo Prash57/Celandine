@@ -9,13 +9,22 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{{ blog.title }}" />
+    <meta property="og:description" content="{{ blog.sub_title }}" />
+    <meta property="og:image" content="{{ request.blog.image.url }}" />
+    <meta property="og:url" content="{{ request.build_absolute_url }}" />
+    <meta property="og:type" content="article" />
+    <meta name="twitter:card" content="summary_large_image">
+
+
     <!-- Favicon -->
     <link href="{{home_content.banner_image.url}}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   
+
     <link
         href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:wght@100&display=swap"
         rel="stylesheet">
